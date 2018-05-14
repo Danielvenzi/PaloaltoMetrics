@@ -90,10 +90,10 @@ for value in OID:
         #result = mem_process()
         print(mem_process())
 
-    #elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.1" or str(value) == "1.3.6.1.2.1.25.3.3.1.2.2" or str(value) == "1.3.6.1.4.1.25461.2.1.2.3.3.0":
+    elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.1" or str(value) == "1.3.6.1.2.1.25.3.3.1.2.2" or str(value) == "1.3.6.1.4.1.25461.2.1.2.3.3.0":
     #else:    
-    #    result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c52-100".format(sys.argv[2],sys.argv[1],value)).read())
-    #    print(result)
+        result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c52-100".format(sys.argv[2],sys.argv[1],value)).read())
+        print(result)
         
 
     #with open("result", "a") as out:
