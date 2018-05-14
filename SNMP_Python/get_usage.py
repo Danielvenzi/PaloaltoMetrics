@@ -84,7 +84,7 @@ def intStatus():
 #Colocar o main aqui:
 
 OID = ["1.3.6.1.2.1.25.3.3.1.2.1","1.3.6.1.2.1.25.3.3.1.2.2","1.3.6.1.2.1.25.2.3","1.3.6.1.4.1.25461.2.1.2.3.3.0"]
-result = []
+#result = []
 for value in OID:
 
     if str(value) == "1.3.6.1.2.1.25.2.3":
@@ -117,7 +117,7 @@ for value in OID:
         #os.system("echo '{0};' > result".format(result))
         out.write(result+';')
 
-activeEth = []
+activeEth = [ ]
 for iterator in range(1,301):
 
    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
