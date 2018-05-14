@@ -81,27 +81,35 @@ def intStatus():
 #Colocar o main aqui:
 
 OID = ["1.3.6.1.2.1.25.3.3.1.2.1","1.3.6.1.2.1.25.3.3.1.2.2","1.3.6.1.2.1.25.2.3","1.3.6.1.4.1.25461.2.1.2.3.3.0"]
-
+result = []
 for value in OID:
 
     if str(value) == "1.3.6.1.2.1.25.2.3":
         os.system("snmpwalk -v 2c -c {0} {1} {2} > mem.info".format(sys.argv[2],sys.argv[1],value))
         #os.system("echo {0} > mem.info".format(HOLDER))
-        #result = mem_process()
-        print(mem_process(), end='')
+        result = mem_process()
+        result = result.strip('\n')
+        print(result)
+        #print(mem_process(), end='')
 
     elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.1":
     #else:    
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c50-100".format(sys.argv[2],sys.argv[1],value)).read())
-        print(result, end='')
+        #print(result, end='')
+        result = result.strip('\n')
+        print(result)
     
     elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.2":
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c50-100".format(sys.argv[2],sys.argv[1],value)).read())
-        print(result, end='')
+        #print(result, end='')
+        result = result.strip('\n')
+        print(result)
 
     elif str(value) == "1.3.6.1.4.1.25461.2.1.2.3.3.0":
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c54-100".format(sys.argv[2],sys.argv[1],value)).read())
-        print(result, end='')
+        #print(result, end='')
+        result = result.strip('\n')
+        print(result)
         
 
     #with open("result", "a") as out:
