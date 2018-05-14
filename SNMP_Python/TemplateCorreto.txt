@@ -1,0 +1,47 @@
+PUT _template/panmetricas*
+{
+  "template": "panmetricas*",
+  "order": 1,
+  "settings": {
+    "index": {
+      "refresh_interval": "5s"
+    }
+  },
+  "aliases": {
+    "pan-metricas": {}
+  },
+  "mappings": {
+    "panmetricas": {
+      "properties": {
+        "GenerateTime": {
+          "type": "date",
+          "format": "yyyy/MM/dd HH:mm:ss||epoch_millis"
+        },
+        "CpuUtilManagement": {
+          "type": "float"
+        },
+        "CpuUsageDataPlane": {
+          "type": "float"
+        },
+        "ManagementMemory": {
+          "type": "float"
+        },
+        "Ethernet1_1Throughput": {
+          "type": "float"
+        },
+		"Ethernet1_2Throughput": {
+			  "type": "float"
+			},
+		"Ethernet1_3Throughput": {
+			  "type": "float"
+			},
+		"Ethernet1_4Throughput": {
+			  "type": "float"
+        },
+        "TotalActiveSessions": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
