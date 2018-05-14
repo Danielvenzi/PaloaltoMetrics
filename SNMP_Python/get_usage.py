@@ -124,11 +124,11 @@ for iterator in range(1,301):
    #os.system("echo {0} > int".format(query))
    control = intStatus()
 
-    if control == 1:
-         activeEth.append(iterator)
-    elif control == 2:
-         break
-    print(activeEth[1])
+   if control == 1:
+        activeEth.append(iterator)
+   elif control == 2:
+        break
+   print(activeEth[1])
 
 for iterator in activeEth:
 
