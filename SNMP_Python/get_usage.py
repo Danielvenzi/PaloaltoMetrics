@@ -129,7 +129,7 @@ for iterator in range(1,301):
    elif control == 2:
         break
 
-print(activeEth[3])
+print(len(activeEth))
 
 for iterator in activeEth:
 
