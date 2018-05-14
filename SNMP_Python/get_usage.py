@@ -119,7 +119,7 @@ for value in OID:
 #    result = file_process()
 #
 #    with open("result", "a") as out:
-        out.write(result+';')
+    #    out.write(result+';')
 
 #with open("result","r") as final:
 
