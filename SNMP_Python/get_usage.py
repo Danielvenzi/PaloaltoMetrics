@@ -126,10 +126,9 @@ for iterator in range(1,301):
 
    if control == 1:
         activeEth.append(iterator)
+        print(activeEth[0])
    elif control == 2:
         break
-
-print(activeEth[0])
 
 for iterator in activeEth:
 
