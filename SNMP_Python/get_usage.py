@@ -98,30 +98,30 @@ for value in OID:
         #os.system("echo '{0};' > result".format(result))
         out.write(result+';')
 
-activeEth = []
-for iterator in range(1,301):
-
-    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
-    #os.system("echo {0} > int".format(query))
-    control = intStatus()
-
-    if control == 1:
-        activeEth.append(iterator)
-    elif control == 2:
-        break
-
-for iterator in activeEth:
-
-    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
-    #os.system("echo {0} > xml".format(query))
-    result = file_process()
-
-    with open("result", "a") as out:
+#activeEth = []
+#for iterator in range(1,301):
+#
+#   os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
+#    #os.system("echo {0} > int".format(query))
+#    control = intStatus()
+#
+#    if control == 1:
+#        activeEth.append(iterator)
+#    elif control == 2:
+#        break
+#
+#for iterator in activeEth:
+#
+#    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
+#    #os.system("echo {0} > xml".format(query))
+#    result = file_process()
+#
+#    with open("result", "a") as out:
         out.write(result+';')
 
-with open("result","r") as final:
+#with open("result","r") as final:
 
-    for line in final:
-        print(line)
+#    for line in final:
+#        print(line)
 
 #-------------------------------------------------------------------------------------------------------------------------------
