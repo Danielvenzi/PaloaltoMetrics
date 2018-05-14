@@ -68,12 +68,15 @@ def intStatus():
     value = open("int","r")
     Bolean = 0
     for line in value:
-        if line[4]+line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20] == "<status>up</status>":
-            Bolean = 1
-            break
-        elif line[2]+line[3]+line[4]+line[5]+line[6]+line[7]+line[8] == "<error>":
-            Bolean = 2
-            break
+        line = line.strip('\n')
+        if len(line) == 21:
+            if line[4]+line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20] == "<status>up</status>":
+                Bolean = 1
+                break
+        elif len(line) == 50:
+            if line[2]+line[3]+line[4]+line[5]+line[6]+line[7]+line[8] == "<error>":
+                Bolean = 2
+                break
     return Bolean
 
 
@@ -114,30 +117,32 @@ for value in OID:
         #os.system("echo '{0};' > result".format(result))
         out.write(result+';')
 
-#activeEth = []
-#for iterator in range(1,301):
-#
-#   os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
-#    #os.system("echo {0} > int".format(query))
-#    control = intStatus()
-#
-#    if control == 1:
-#        activeEth.append(iterator)
-#    elif control == 2:
-#        break
-#
-#for iterator in activeEth:
-#
-#    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
-#    #os.system("echo {0} > xml".format(query))
-#    result = file_process()
-#
-#    with open("result", "a") as out:
-    #    out.write(result+';')
+activeEth = []
+for iterator in range(1,301):
+
+   os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
+   #os.system("echo {0} > int".format(query))
+   control = intStatus()
+
+   if control == 1:
+        activeEth.append(iterator)
+   elif control == 2:
+        break
+
+for iterator in activeEth:
+
+    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
+    #os.system("echo {0} > xml".format(query))
+    result = file_process()
+
+    with open("result", "a") as out:
+        out.write(result+';')
 
 #with open("result","r") as final:
 
 #    for line in final:
 #        print(line)
+
+#os.system("rm -f result")
 
 #-------------------------------------------------------------------------------------------------------------------------------
