@@ -144,6 +144,6 @@ with open("result","r") as final:
     for line in final:
         print(line)
 
-#os.system("rm -f result")
+os.system("rm -f result")
 
 #-------------------------------------------------------------------------------------------------------------------------------
