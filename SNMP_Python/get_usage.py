@@ -138,11 +138,11 @@ for iterator in activeEth:
     with open("result", "a") as out:
         out.write(result+';')
 
-#with open("result","r") as final:
+with open("result","r") as final:
 
-#    for line in final:
-#        print(line)
+    for line in final:
+        print(line)
 
-#os.system("rm -f result")
+os.system("rm -f result")
 
 #-------------------------------------------------------------------------------------------------------------------------------
