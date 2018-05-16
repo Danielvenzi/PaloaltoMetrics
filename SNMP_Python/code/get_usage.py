@@ -69,18 +69,18 @@ def intStatus():
     Bolean = 0
     for line in value:
         line = line.strip('\n')
-        print(line)
+        #print(line)
         if len(line) == 21:
-            print("Chegou 1")
-            print(len(line))
+            #print("Chegou 1")
+            #print(len(line))
             if line[4]+line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20] == "<state>up</state>":
-                print("Chegou 2")
+                #print("Chegou 2")
                 Bolean = 1
                 break
         elif len(line) == 50:
-            print("Chegou 3")
+            #print("Chegou 3")
             if line[2]+line[3]+line[4]+line[5]+line[6]+line[7]+line[8] == "<error>":
-                print("Chegou 4")
+                #print("Chegou 4")
                 Bolean = 2
                 break
     return Bolean
@@ -129,13 +129,17 @@ for iterator in range(1,301):
    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
    #os.system("echo {0} > int".format(query))
    control = intStatus()
-   print(control)
+   #print(control)
 
    if control == 1:
         activeEth.append(iterator)
    elif control == 2:
         break
    #print(activeEth)
+i=0
+while i <= len(activeEth):
+    print(activeEth[i])
+    i += 1
 
 for iterator in activeEth:
 
