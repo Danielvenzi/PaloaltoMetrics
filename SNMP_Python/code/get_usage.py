@@ -158,7 +158,7 @@ os.system("rm -f result")
 
 son = {}
 i=0
-while i <= len(activeEth):
+while i <= len(activeEth)-1:
     son["Ethernet 1/"+str(activeEth[i])] = activeEthThrough[i]
     i += 1
 print (json.dumps(json, ensure_ascii=False))
