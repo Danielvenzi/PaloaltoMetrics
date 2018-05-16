@@ -74,7 +74,6 @@ def intStatus():
             print("Chegou 1")
             print(len(line))
             if line[4]+line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20] == "<state>up</state>":
-            #if line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20]+line[21] == "<state>up</state>"
                 print("Chegou 2")
                 Bolean = 1
                 break
@@ -142,8 +141,8 @@ for iterator in activeEth:
 
     os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
     #os.system("echo {0} > xml".format(query))
-    result = file_process()
-
+    result = str(file_process())
+    
     with open("result", "a") as out:
         out.write(result+';')
 
