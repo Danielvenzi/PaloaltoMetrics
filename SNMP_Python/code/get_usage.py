@@ -136,10 +136,6 @@ for iterator in range(1,301):
    elif control == 2:
         break
    #print(activeEth)
-i=0
-while i <= len(activeEth):
-    print(activeEth[i])
-    i += 1
 
 for iterator in activeEth:
 
