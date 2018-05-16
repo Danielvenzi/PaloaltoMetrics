@@ -147,7 +147,6 @@ for iterator in activeEth:
     
     with open("result", "a") as out:
         out.write(result+';')
-print(activeEthThrough[2])
 
 with open("result","r") as final:
 
