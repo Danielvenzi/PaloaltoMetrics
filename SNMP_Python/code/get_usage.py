@@ -71,15 +71,15 @@ def intStatus():
         line = line.strip('\n')
         print(line)
         if len(line) == 21:
-            #print("Chegou 1")
+            print("Chegou 1")
             if line[4]+line[5]+line[6]+line[7]+line[8]+line[9]+line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]+line[17]+line[18]+line[19]+line[20] == "<status>up</status>":
-                #print("Chegou 2")
+                print("Chegou 2")
                 Bolean = 1
                 break
         elif len(line) == 50:
-            #print("Chegou 3")
+            print("Chegou 3")
             if line[2]+line[3]+line[4]+line[5]+line[6]+line[7]+line[8] == "<error>":
-                #print("Chegou 4")
+                print("Chegou 4")
                 Bolean = 2
                 break
     return Bolean
