@@ -131,6 +131,7 @@ for iterator in range(1,301):
    #print(control)
 
    if control == 1:
+        str(iterator)
         activeEth.append(iterator)
    elif control == 2:
         break
@@ -155,4 +156,10 @@ with open("result","r") as final:
 
 os.system("rm -f result")
 
+son = {}
+i=0
+while i <= activeEth:
+    son["Ethernet 1/"+activeEth[i]] = activeEthThrough[i]
+
+print (json.dumps(json, ensure_ascii=False))
 #-------------------------------------------------------------------------------------------------------------------------------
