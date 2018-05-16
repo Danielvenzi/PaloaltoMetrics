@@ -90,6 +90,7 @@ def intStatus():
 
 OID = ["1.3.6.1.2.1.25.3.3.1.2.1","1.3.6.1.2.1.25.3.3.1.2.2","1.3.6.1.2.1.25.2.3","1.3.6.1.4.1.25461.2.1.2.3.3.0"]
 #result = []
+snmp_values = []
 for value in OID:
 
     if str(value) == "1.3.6.1.2.1.25.2.3":
@@ -97,6 +98,7 @@ for value in OID:
         #os.system("echo {0} > mem.info".format(HOLDER))
         result = mem_process()
         result = result.strip('\n')
+        snmp_values.append(result)
         #print(result)
 
     elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.1":
@@ -104,18 +106,21 @@ for value in OID:
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c50-100".format(sys.argv[2],sys.argv[1],value)).read())
         #print(result, end='')
         result = result.strip('\n')
+        snmp_values.append(result)
         #print(result)
     
     elif str(value) == "1.3.6.1.2.1.25.3.3.1.2.2":
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c50-100".format(sys.argv[2],sys.argv[1],value)).read())
         #print(result, end='')
         result = result.strip('\n')
+        snmp_values.append(result)
         #print(result)
 
     elif str(value) == "1.3.6.1.4.1.25461.2.1.2.3.3.0":
         result = str(os.popen("snmpget -v 2c -c {0} {1} {2} | cut -c54-100".format(sys.argv[2],sys.argv[1],value)).read())
         #print(result, end='')
         result = result.strip('\n')
+        snmp_values.append(result)
         #print(result)
         
     with open("result", "a") as out:
@@ -156,7 +161,12 @@ with open("result","r") as final:
 
 os.system("rm -f result")
 
+keys = ["CPU Usage Data","CPU Usage Management","Memory Used","Total Active Sessions"]
 son = {}
+i=0
+while i <= len(snmp_values)-1:
+    son[keys[i]] = snmp_values[i]
+    i += 1
 i=0
 while i <= len(activeEth)-1:
     son["Ethernet 1/"+str(activeEth[i])] = activeEthThrough[i]
