@@ -25,12 +25,10 @@ def file_process():
     #line = xml.readline()
     for  line in xml:
         value = line[0]+line[1]+line[2]+line[3]+line[4]
-        print(value)  
 	    	
         if value == "class":
 		
             RawValue = line[10]+line[11]+line[12]+line[13]+line[14]+line[15]+line[16]
-            print(RawValue)
             for char in RawValue:
                 if  char == " ":
                     continue
