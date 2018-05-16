@@ -162,5 +162,6 @@ while i <= len(activeEth)-1:
     son["Ethernet 1/"+str(activeEth[i])] = activeEthThrough[i]
     i += 1
 
-json.dumps(son, ensure_ascii=False)
+estructure = json.dumps(son, ensure_ascii=False)
+print(estructure)
 #-------------------------------------------------------------------------------------------------------------------------------
