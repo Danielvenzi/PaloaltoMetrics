@@ -123,6 +123,7 @@ for iterator in range(1,301):
    os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cinterface%3Eethernet1%2F{1}%3C%2Finterface%3E%3C%2Fshow%3E&key={2}' > int".format(sys.argv[1],iterator,sys.argv[3]))
    #os.system("echo {0} > int".format(query))
    control = intStatus()
+   print(control)
 
    if control == 1:
         activeEth.append(iterator)
