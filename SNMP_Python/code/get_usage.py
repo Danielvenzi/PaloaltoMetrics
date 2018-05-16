@@ -37,8 +37,8 @@ def file_process():
                 elif char != " ":
                     NotYetProcessed = NotYetProcessed + char
                     #print(NotYetProcessed)
-                ProcessedValue = int(ProcessedValue)+int(NotYetProcessed)
-                NotYetProcessed = ""
+            ProcessedValue = int(ProcessedValue)+int(NotYetProcessed)
+            NotYetProcessed = ""
 
 #print(ProcessedValue)
     return ProcessedValue
