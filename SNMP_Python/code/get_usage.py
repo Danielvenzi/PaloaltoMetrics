@@ -160,6 +160,6 @@ son = {}
 i=0
 while i <= len(activeEth):
     son["Ethernet 1/"+str(activeEth[i])] = activeEthThrough[i]
-
+    i += 1
 print (json.dumps(json, ensure_ascii=False))
 #-------------------------------------------------------------------------------------------------------------------------------
