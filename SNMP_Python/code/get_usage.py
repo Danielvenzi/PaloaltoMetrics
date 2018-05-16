@@ -25,6 +25,7 @@ def file_process():
     #line = xml.readline()
     for  line in xml:
         value = line[0]+line[1]+line[2]+line[3]+line[4]
+        print(value)  
 	    	
         if value == "class":
 		
@@ -138,11 +139,11 @@ for iterator in range(1,301):
    #print(activeEth)
 
 for iterator in activeEth:
-    print(iterator)
+    #print(iterator)
     os.system("curl -k -X GET 'https://{0}/api/?type=op&cmd=%3Cshow%3E%3Cqos%3E%3Cinterface%3E%3Centry%20name%3D%27ethernet1%2F{1}%27%3E%3Cthroughput%3E0%3C%2Fthroughput%3E%3C%2Fentry%3E%3C%2Finterface%3E%3C%2Fqos%3E%3C%2Fshow%3E&key={2}' > xml".format(sys.argv[1],iterator, sys.argv[3]))
     #os.system("echo {0} > xml".format(query))
     result = str(file_process())
-    print(result)
+    #print(result)
     
     with open("result", "a") as out:
         out.write(result+';')
