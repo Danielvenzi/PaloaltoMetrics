@@ -1,0 +1,5 @@
+<response cmd="status" status="success"><result>QoS throughput for interface ethernet1/4, node default-group (Qid 0):
+class 4:     4278 kbps
+class 6:      157 kbps
+class 7:        0 kbps
+</result></response>

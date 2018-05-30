@@ -1,0 +1,4 @@
+<response status="success"><result>
+  <dp>dp0</dp>
+  <error>Interface 'ethernet1/5' not found</error>
+</result></response>
