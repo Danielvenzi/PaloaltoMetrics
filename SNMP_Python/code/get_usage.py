@@ -167,6 +167,7 @@ i=0
 while i <= len(snmp_values)-1:
     son[keys[i]] = snmp_values[i]
     i += 1
+son["IP Address"] = argv[1]
 i=0
 while i <= len(activeEth)-1:
     son["Ethernet 1/"+str(activeEth[i])] = activeEthThrough[i]

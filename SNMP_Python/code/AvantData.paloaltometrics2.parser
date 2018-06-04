@@ -1,0 +1,27 @@
+input {
+	 exec {
+                command  => "python3 /root/GIT/Python/SNMP_Python/code/get_usage.py 192.168.101.251 paloaltosnmp! LUFRPT1Kdm9MU3FiNnlGbUVnMEFJeW83cGFMUE9mZTA9TitvLy9EQWt2bHdFcjZuVTVRQ1F5VVI2eWVMYXJSU09HZ1NVTU9uL2M4T2VjVXdEYjRieTl1WEpzSVMxNVdvQw=="
+                interval => 60
+                type     => "snmp_paloalto"
+        }
+}
+
+filter {
+	
+	if [type] == "snmp_paloalto"
+	{
+		json {
+  			  source => "message"
+  		}
+		 mutate{remove_field => ["message"]}
+		 mutate{remove_field => ["command"]}
+		 mutate{remove_field => ["type"]}
+		 mutate{remove_field => ["@version"]}
+		 mutate{remove_field => ["host"]}
+		 
+	}
+}
+
+output {
+	stdout{}
+}
