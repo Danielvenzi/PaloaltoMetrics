@@ -1,7 +1,6 @@
 #                                        |
 #Autor: Daniel Gomes Venzi Gonçalves     |
-#E-mail: daniel@avantsec.com.br          |
-#Empresa: AvantSec                       |
+#E-mail: gomesvenzi@gmail.com            |
 #----------------------------------------#
 
 #Incluir um break no loop de verificação de status da interface
